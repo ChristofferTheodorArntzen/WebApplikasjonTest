@@ -2,26 +2,18 @@ package codeCaseFremtind.letterService;
 
 public class LetterEntity {
 
-    private Integer id;
     private Integer userId;
-    private Integer agreementId;
-    private boolean status;
+    private Integer insuranceId;
+    private String letterContent;
+    private boolean sent;
 
     public LetterEntity() { }
 
-    public LetterEntity(Integer id, Integer userId, Integer agreementId, boolean status) {
-        this.id = id;
+    public LetterEntity(Integer userId, Integer insuranceId, String letterContent, boolean sent) {
         this.userId = userId;
-        this.agreementId = agreementId;
-        this.status = status;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+        this.insuranceId = insuranceId;
+        this.letterContent = letterContent;
+        this.sent = sent;
     }
 
     public Integer getUserId() {
@@ -32,19 +24,27 @@ public class LetterEntity {
         this.userId = userId;
     }
 
-    public Integer getAgreementId() {
-        return agreementId;
+    public Integer getInsuranceId() {
+        return insuranceId;
     }
 
-    public void setAgreementId(Integer agreementId) {
-        this.agreementId = agreementId;
+    public void setInsuranceId(Integer insuranceId) {
+        this.insuranceId = insuranceId;
     }
 
-    public boolean getStatus() {
-        return status;
+    public String getLetterContent() {
+        return letterContent;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setLetterContent(String letterContent) {
+        this.letterContent = letterContent;
+    }
+
+    public boolean isSent() {
+        return sent;
+    }
+
+    public void setSent(boolean sent) {
+        this.sent = sent;
     }
 }

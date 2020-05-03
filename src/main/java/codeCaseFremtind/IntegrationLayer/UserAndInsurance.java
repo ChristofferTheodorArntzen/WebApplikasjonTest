@@ -1,30 +1,30 @@
 package codeCaseFremtind.IntegrationLayer;
 
-public class UserAndAgreement {
+public class UserAndInsurance {
 
-    private String agreementType;
+    private String insuranceType;
     private String desc;
     private String name;
     private String address;
     private int age;
 
-    public UserAndAgreement() {
+    public UserAndInsurance() {
     }
 
-    public UserAndAgreement(String agreementType, String desc, String name, String address, int age) {
-        this.agreementType = agreementType;
+    public UserAndInsurance(String insuranceType, String desc, String name, String address, int age) {
+        this.insuranceType = insuranceType;
         this.desc = desc;
         this.name = name;
         this.address = address;
         this.age = age;
     }
 
-    public String getAgreementType() {
-        return agreementType;
+    public String getInsuranceType() {
+        return insuranceType;
     }
 
-    public void setAgreementType(String agreementType) {
-        this.agreementType = agreementType;
+    public void setInsuranceType(String insuranceType) {
+        this.insuranceType = insuranceType;
     }
 
     public String getDesc() {

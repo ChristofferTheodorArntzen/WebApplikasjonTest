@@ -2,30 +2,30 @@ package codeCaseFremtind.IntegrationLayer;
 
 public class ResponseObject {
 
-    private Integer agreementId;
-    private Boolean agreementStatus;
+    private Integer insuranceId;
+    private Boolean insuranceStatus;
 
     public ResponseObject() {
     }
 
-    public ResponseObject(Integer agreementId, Boolean agreementStatus) {
-        this.agreementId = agreementId;
-        this.agreementStatus = agreementStatus;
+    public ResponseObject(Integer insuranceId, Boolean insuranceStatus) {
+        this.insuranceId = insuranceId;
+        this.insuranceStatus = insuranceStatus;
     }
 
-    public Integer getAgreementId() {
-        return agreementId;
+    public Integer getInsuranceId() {
+        return insuranceId;
     }
 
-    public void setAgreementId(Integer agreementId) {
-        this.agreementId = agreementId;
+    public void setInsuranceId(Integer insuranceId) {
+        this.insuranceId = insuranceId;
     }
 
-    public Boolean getAgreementStatus() {
-        return agreementStatus;
+    public Boolean getInsuranceStatus() {
+        return insuranceStatus;
     }
 
-    public void setAgreementStatus(Boolean agreementStatus) {
-        this.agreementStatus = agreementStatus;
+    public void setInsuranceStatus(Boolean insuranceStatus) {
+        this.insuranceStatus = insuranceStatus;
     }
 }

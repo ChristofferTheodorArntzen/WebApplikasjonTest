@@ -5,8 +5,11 @@ package codeCaseFremtind.IntegrationLayer;
 import codeCaseFremtind.Database;
 import codeCaseFremtind.Main;
 import codeCaseFremtind.letterService.LetterEntity;
-import codeCaseFremtind.subjectSystem.Agreement;
-import codeCaseFremtind.subjectSystem.User;
+import codeCaseFremtind.letterService.LetterSentResponse;
+import codeCaseFremtind.fagsystem.insurance.Insurance;
+import codeCaseFremtind.fagsystem.insurance.InsuranceResponse;
+import codeCaseFremtind.fagsystem.user.User;
+import codeCaseFremtind.fagsystem.user.UserResponse;
 
 import javax.ws.rs.*;
 import javax.ws.rs.client.Client;
@@ -22,47 +25,54 @@ public class IntegrationLayer {
     Database db = Database.getDatabase();
 
     @POST
-    @Path("/createUserAndAgreement")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAgreement(UserAndAgreement userAndAgreement){
+    public Response createUserAndInsurance(UserAndInsurance userAndInsurance){
 
-        if(userAndAgreement != null){
+        if(userAndInsurance != null){
 
             User user = new User();
-            user.setName(userAndAgreement.getName());
-            user.setAddress(userAndAgreement.getAddress());
-            user.setAge(userAndAgreement.getAge());
+            user.setName(userAndInsurance.getName());
+            user.setAddress(userAndInsurance.getAddress());
+            user.setAge(userAndInsurance.getAge());
 
             Client c = ClientBuilder.newClient();
             WebTarget target = c.target(Main.BASE_URI);
 
-            Integer responseCreatedUserId = target.path("/subjectSystem/createUser").request().post(Entity.json(user), Integer.class);
+            Response responseCreatedUser = target.path(Main.BASE_USER_URI).request().post(Entity.json(user));
 
-            Agreement agreement = new Agreement();
-            agreement.setDesc(userAndAgreement.getDesc());
-            agreement.setStatus(false);
-            agreement.setAgreementType(userAndAgreement.getAgreementType());
+            UserResponse userResponse = responseCreatedUser.readEntity(UserResponse.class);
 
-            Integer responseCreatedAgreementId = target.path("/subjectSystem/createAgreement").request().post(Entity.json(agreement), Integer.class);
+            Insurance insurance = new Insurance();
+            insurance.setDesc(userAndInsurance.getDesc());
+            insurance.setStatus(false);
+            insurance.setInsuranceType(userAndInsurance.getInsuranceType());
+
+            Response responseCreatedInsurance = target.path(Main.BASE_INSURANCE_URI).request().post(Entity.json(insurance));
+
+            InsuranceResponse insuranceResponse = responseCreatedInsurance.readEntity(InsuranceResponse.class);
 
             LetterEntity letter = new LetterEntity();
-            letter.setUserId(responseCreatedUserId);
-            letter.setAgreementId(responseCreatedAgreementId);
-            letter.setId(db.nextLetterId());
-            if(letter.getAgreementId() != null && letter.getUserId() != null){
-                Boolean responseLetterSent = target.path("/letterService/" + letter.getId()).request().post(Entity.json(letter), Boolean.class);
+            letter.setUserId(userResponse.getId());
+            letter.setInsuranceId(insuranceResponse.getId());
+            letter.setLetterContent("Din avtale er nå aktiv.");
+            if(letter.getInsuranceId() != null && letter.getUserId() != null){
+                Response response = target.path(Main.BASE_LETTER_URI).request().post(Entity.json(letter));
 
-                if (responseLetterSent != null && responseLetterSent){
+                LetterSentResponse letterSentResponse = response.readEntity(LetterSentResponse.class);
 
-                    Agreement agreementToSetStatus = db.findAgreement(responseCreatedAgreementId);
-                    agreementToSetStatus.setStatus(true);
-                    String path = String.format("/subjectSystem/putAgreement/%d", agreementToSetStatus.getId());
-                    Boolean updatedAgreementStatusResponse = target.path(path).request().put(Entity.json(agreementToSetStatus), Boolean.class);
+                if (letterSentResponse.isSent()){
 
-                    ResponseObject responseObject = new ResponseObject(agreementToSetStatus.getId(), updatedAgreementStatusResponse);
+                    Insurance insuranceToSetStatus = db.findInsurance(insuranceResponse.getId());
+                    insuranceToSetStatus.setStatus(true);
+                    String path = Main.BASE_INSURANCE_URI + insuranceToSetStatus.getId();
+                    Response updatedInsuranceStatusResponse = target.path(path).request().put(Entity.json(insuranceToSetStatus));
 
-                    return Response.ok(responseObject, MediaType.APPLICATION_JSON).build();
+                    Insurance updatedInsurance = updatedInsuranceStatusResponse.readEntity(Insurance.class);
+
+                    ResponseObject responseObject = new ResponseObject(insuranceToSetStatus.getId(), updatedInsurance.getStatus());
+
+                    return Response.ok(responseObject).build();
                 }
             }
         }

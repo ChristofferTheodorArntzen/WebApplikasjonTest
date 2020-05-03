@@ -1,8 +1,8 @@
 package codeCaseFremtind;
 
 import codeCaseFremtind.letterService.LetterEntity;
-import codeCaseFremtind.subjectSystem.Agreement;
-import codeCaseFremtind.subjectSystem.User;
+import codeCaseFremtind.fagsystem.insurance.Insurance;
+import codeCaseFremtind.fagsystem.user.User;
 
 import java.util.Comparator;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ public class Database {
     private static Database database = null;
 
     private Map<Integer, User> userMap = new HashMap<>();
-    private Map<Integer, Agreement> agreementMap = new HashMap<>();
+    private Map<Integer, Insurance> insuranceMap = new HashMap<>();
     private Map<Integer, LetterEntity> letterMap = new HashMap<>();
 
     public static Database getDatabase(){
@@ -55,58 +55,32 @@ public class Database {
     }
 
 
-    // AGREEMENT
+    // Insurance
 /*--------------------------------------------------------------------------------------------------------------------*/
-    public boolean insertAgreement(Agreement agreement){
-        agreementMap.put(agreement.getId(), agreement);
+    public boolean insertInsurance(Insurance insurance){
+        insuranceMap.put(insurance.getId(), insurance);
         return true;
     }
 
-    public void deleteAgreement(Agreement agreement){
-        agreementMap.remove(agreement.getId());
+    public void deleteInsurance(Insurance insurance){
+        insuranceMap.remove(insurance.getId());
     }
 
-    public void updateOrCreateAgreement(Agreement agreement){
-        agreementMap.put(agreement.getId(), agreement);
+    public void updateOrCreateInsurance(Insurance insurance){
+        insuranceMap.put(insurance.getId(), insurance);
     }
 
-    public Agreement findAgreement(int id){
-        return agreementMap.get(id);
+    public Insurance findInsurance(int id){
+        return insuranceMap.get(id);
     }
 
-    public int nextAgreementId(){
+    public int nextInsuranceId(){
 
-        if(agreementMap.size() == 0){
+        if(insuranceMap.size() == 0){
             return 0;
         }
 
-        Agreement agreement = agreementMap.values().stream().max(Comparator.comparing(Agreement::getId)).get();
-        return agreement.getId() + 1;
+        Insurance insurance = insuranceMap.values().stream().max(Comparator.comparing(Insurance::getId)).get();
+        return insurance.getId() + 1;
     }
-
-    // AGREEMENT
-/*--------------------------------------------------------------------------------------------------------------------*/
-    public boolean insertLetter(LetterEntity letter){
-        letterMap.put(letter.getId(), letter);
-        return true;
-    }
-
-    public void updateOrCreateLetter(LetterEntity letter){
-        letterMap.put(letter.getId(), letter);
-    }
-
-    public LetterEntity findLetter(int id){
-        return letterMap.get(id);
-    }
-
-    public int nextLetterId(){
-
-        if(letterMap.size() == 0){
-            return 0;
-        }
-
-        LetterEntity letter = letterMap.values().stream().max(Comparator.comparing(LetterEntity::getId)).get();
-        return letter.getId() + 1;
-    }
-
 }

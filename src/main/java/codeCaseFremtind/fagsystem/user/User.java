@@ -1,4 +1,4 @@
-package codeCaseFremtind.subjectSystem;
+package codeCaseFremtind.fagsystem.user;
 
 public class User {
 
@@ -9,6 +9,12 @@ public class User {
 
 
     public User() { }
+
+    public User(String name, String address, int age) {
+        this.name = name;
+        this.address = address;
+        this.age = age;
+    }
 
     public User(Integer id, String name, String address, int age) {
         this.id = id;
@@ -47,5 +53,15 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

@@ -1,10 +1,9 @@
 package testCodeCaseFremtind;
 
 import codeCaseFremtind.Database;
-import codeCaseFremtind.IntegrationLayer.ResponseObject;
-import codeCaseFremtind.IntegrationLayer.UserAndInsurance;
 import codeCaseFremtind.Main;
-import codeCaseFremtind.fagsystem.insurance.Insurance;
+import codeCaseFremtind.letterService.LetterEntity;
+import codeCaseFremtind.letterService.LetterSentResponse;
 import codeCaseFremtind.fagsystem.user.User;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.junit.After;
@@ -19,12 +18,9 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-public class TestIntegrationLayer {
-
+public class TestLetterResource {
     private HttpServer server;
     private WebTarget target;
-
-    Database db = Database.getDatabase();
 
     @Before
     public void setUp() {
@@ -35,7 +31,7 @@ public class TestIntegrationLayer {
 
         Database database = Database.getDatabase();
         database.insertUser(new User(1, "Christoffer" ,"Address1", 25));
-        database.insertInsurance(new Insurance(1, "hus", false, "Forsikring for huset"));
+
         target = c.target(Main.BASE_URI);
     }
 
@@ -45,19 +41,14 @@ public class TestIntegrationLayer {
     }
 
     @Test
-    public void testIntegrationLayer(){
+    public void testGetLetterService() {
 
-        UserAndInsurance userAndInsurance = new UserAndInsurance("Bil", "Bil forsikring for Volvo #131232", "Christoffer",
-                "Addresse1", 25);
+        LetterEntity letter = new LetterEntity(1, 1, "weqweqsadasd", false);
 
-        Response response = target.path("/integrationLayer").request(MediaType.APPLICATION_JSON).post(Entity.json(userAndInsurance));
-
-        ResponseObject responseObject = response.readEntity(ResponseObject.class);
-
+        Response response = target.path("/letter").request(MediaType.APPLICATION_JSON).post(Entity.json(letter));
         Assert.assertEquals(200, response.getStatus());
-        Assert.assertEquals(2, responseObject.getInsuranceId().intValue());
-        Assert.assertEquals(true, responseObject.getInsuranceStatus());
+        LetterSentResponse letterSentResponse = response.readEntity(LetterSentResponse.class);
+        Assert.assertTrue(letterSentResponse.isSent());
     }
-
 
 }

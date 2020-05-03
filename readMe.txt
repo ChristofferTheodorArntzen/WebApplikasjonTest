@@ -2,8 +2,9 @@
 
 Used this to create a project.
 
-This set up the b\
+Followed this guide posted to Stackoverflow to create a project in Intellij
 
+https://stackoverflow.com/questions/31992461/how-to-run-jersey-server-webservice-server-without-using-tomcat
 
 mvn archetype:generate
 -DarchetypeArtifactId=jersey-quickstart-grizzly2
@@ -13,7 +14,7 @@ mvn archetype:generate
 -DartifactId=simple-service
 -Dpackage=com.example-DarchetypeVersion=2.30.1
 
-
+Later altered both pom.xml and added a web.xml file.
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -21,7 +22,7 @@ Tanker rundt oppgaven
     - En pakke per 'system' eller rad i 'Overordnet flyt' - diagrammet.
 
     - Lage en User resource, Agreement resource, letter resource.
-
+        - User resource og insurance resource ble satt sammen til subjectSystemService
     - Klient skal bare gjøre et kall til  integrasjonslaget og integrasjonslaget skal gjøre etterkommende kall 'alene'.
 
    "Konsekvensen av at kallet mot fagsystemet "Oppdater status til avtale sendt" feiler,
@@ -37,8 +38,10 @@ Tidsbruk på oppgaven
 
     - ca. 5 timer på å sette opp dette prosjektet og å lage/ teste ut JAX-RS kall i mappestrukturen com.testProject
 
-    - 28.04 - 19:00 Startet på å mocke opp alle klasser
-
+    - 28.04 - 19:00 - 20:00 Startet på å mocke opp alle klasser
+    - 01.05 - ca. 2 timer - Laget ferdig subjectSystem - klassen
+    - 03.05 - ca. 4 timer - Fullførte letterService la til selvstendige tester
+                          - Fullførte integrationLayer samt en enkel test som kjører gjennom alle metodene.
 
 
 ------------------------------------------------------------------------------------------------------------------------
