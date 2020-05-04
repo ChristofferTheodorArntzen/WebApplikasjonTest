@@ -21,15 +21,16 @@ Later altered both pom.xml and added a web.xml file.
 Tanker rundt oppgaven
     - En pakke per 'system' eller rad i 'Overordnet flyt' - diagrammet.
 
-    - Lage en User resource, Agreement resource, letter resource.
-        - User resource og insurance resource ble satt sammen til subjectSystemService
-    - Klient skal bare gjøre et kall til  integrasjonslaget og integrasjonslaget skal gjøre etterkommende kall 'alene'.
+    - Lage en User resource, insurance resource, letter resource og et integrationLayer.
 
-   "Konsekvensen av at kallet mot fagsystemet "Oppdater status til avtale sendt" feiler,
-    vil være at avtalen ikke blir aktivert noe som resulterer i en mismatch mellom det som informeres
-    kunde og status på avtalen i fagsystemet."
+    - Klient skal bare gjøre et kall til integrasjonslaget og integrasjonslaget skal gjøre etterkommende kall 'alene'.
+        - Foreløpig gjort ved å lage en client i integrasjonslaget og spørre videre med den klienten,
+         det må være en bedre måte å gjøre dette på?
 
-    - Her kan man sjekke status på
+    - Lage en mock database som inneholder tre maps med <Integer, Object> for å "lagre" entitene som blir opprettet av
+      de forskjellige ressursene, integer var til tenkt PK, kunne vært bedre impl.
+      Database objektet må ha et statisk kall for å opprette seg selv så samme state forblir i alle klassene (singleton)
+
 
 
 ------------------------------------------------------------------------------------------------------------------------
