@@ -1,9 +1,9 @@
 package testCodeCaseFremtind;
 
-import codeCaseFremtind.Database;
-import codeCaseFremtind.Main;
-import codeCaseFremtind.fagsystem.insurance.Insurance;
-import codeCaseFremtind.fagsystem.insurance.InsuranceResponse;
+import codeCase.Database;
+import codeCase.Main;
+import codeCase.fagsystem.insurance.Insurance;
+import codeCase.fagsystem.insurance.InsuranceResponse;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.junit.After;
 import org.junit.Assert;

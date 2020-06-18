@@ -1,13 +1,13 @@
-package codeCaseFremtind.fagsystem.insurance;
+package codeCase.fagsystem.user;
 
-public class InsuranceResponse {
+public class UserResponse {
 
     private Integer id;
 
-    public InsuranceResponse() {
+    public UserResponse() {
     }
 
-    public InsuranceResponse(Integer id) {
+    public UserResponse(Integer id) {
         this.id = id;
     }
 

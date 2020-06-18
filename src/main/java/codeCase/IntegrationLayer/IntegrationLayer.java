@@ -1,15 +1,15 @@
-package codeCaseFremtind.IntegrationLayer;
+package codeCase.IntegrationLayer;
 
 
 
-import codeCaseFremtind.Database;
-import codeCaseFremtind.Main;
-import codeCaseFremtind.letterService.LetterEntity;
-import codeCaseFremtind.letterService.LetterSentResponse;
-import codeCaseFremtind.fagsystem.insurance.Insurance;
-import codeCaseFremtind.fagsystem.insurance.InsuranceResponse;
-import codeCaseFremtind.fagsystem.user.User;
-import codeCaseFremtind.fagsystem.user.UserResponse;
+import codeCase.Database;
+import codeCase.Main;
+import codeCase.letterService.LetterEntity;
+import codeCase.letterService.LetterSentResponse;
+import codeCase.fagsystem.insurance.Insurance;
+import codeCase.fagsystem.insurance.InsuranceResponse;
+import codeCase.fagsystem.user.User;
+import codeCase.fagsystem.user.UserResponse;
 
 import javax.ws.rs.*;
 import javax.ws.rs.client.Client;

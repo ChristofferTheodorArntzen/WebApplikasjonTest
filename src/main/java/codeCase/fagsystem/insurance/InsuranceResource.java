@@ -1,6 +1,6 @@
-package codeCaseFremtind.fagsystem.insurance;
+package codeCase.fagsystem.insurance;
 
-import codeCaseFremtind.Database;
+import codeCase.Database;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

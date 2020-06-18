@@ -1,4 +1,4 @@
-package codeCaseFremtind.fagsystem.insurance;
+package codeCase.fagsystem.insurance;
 
 public class Insurance {
 

@@ -1,4 +1,4 @@
-package codeCaseFremtind.letterService;
+package codeCase.letterService;
 
 public class LetterSentResponse {
 

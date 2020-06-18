@@ -1,10 +1,10 @@
 package testCodeCaseFremtind;
 
-import codeCaseFremtind.Database;
-import codeCaseFremtind.Main;
-import codeCaseFremtind.letterService.LetterEntity;
-import codeCaseFremtind.letterService.LetterSentResponse;
-import codeCaseFremtind.fagsystem.user.User;
+import codeCase.Database;
+import codeCase.Main;
+import codeCase.letterService.LetterEntity;
+import codeCase.letterService.LetterSentResponse;
+import codeCase.fagsystem.user.User;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.junit.After;
 import org.junit.Assert;

@@ -1,11 +1,11 @@
 package testCodeCaseFremtind;
 
-import codeCaseFremtind.Database;
-import codeCaseFremtind.IntegrationLayer.ResponseObject;
-import codeCaseFremtind.IntegrationLayer.UserAndInsurance;
-import codeCaseFremtind.Main;
-import codeCaseFremtind.fagsystem.insurance.Insurance;
-import codeCaseFremtind.fagsystem.user.User;
+import codeCase.Database;
+import codeCase.IntegrationLayer.ResponseObject;
+import codeCase.IntegrationLayer.UserAndInsurance;
+import codeCase.Main;
+import codeCase.fagsystem.insurance.Insurance;
+import codeCase.fagsystem.user.User;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.junit.After;
 import org.junit.Assert;

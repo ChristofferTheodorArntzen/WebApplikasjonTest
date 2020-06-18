@@ -51,7 +51,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>codeCaseFremtind.Main</mainClass>
+                            <mainClass>codeCase.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -87,7 +87,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>codeCaseFremtind.Main</mainClass>
+                    <mainClass>codeCase.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>

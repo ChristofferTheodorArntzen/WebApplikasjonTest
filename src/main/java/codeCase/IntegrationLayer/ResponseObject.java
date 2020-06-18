@@ -1,4 +1,4 @@
-package codeCaseFremtind.IntegrationLayer;
+package codeCase.IntegrationLayer;
 
 public class ResponseObject {
 

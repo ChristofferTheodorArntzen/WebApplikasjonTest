@@ -1,8 +1,8 @@
-package codeCaseFremtind;
+package codeCase;
 
-import codeCaseFremtind.letterService.LetterEntity;
-import codeCaseFremtind.fagsystem.insurance.Insurance;
-import codeCaseFremtind.fagsystem.user.User;
+import codeCase.letterService.LetterEntity;
+import codeCase.fagsystem.insurance.Insurance;
+import codeCase.fagsystem.user.User;
 
 import java.util.Comparator;
 import java.util.HashMap;

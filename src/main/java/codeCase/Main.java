@@ -1,10 +1,10 @@
-package codeCaseFremtind;
+package codeCase;
 
-import codeCaseFremtind.IntegrationLayer.IntegrationLayer;
-import codeCaseFremtind.letterService.LetterResource;
-import codeCaseFremtind.fagsystem.insurance.InsuranceResource;
-import codeCaseFremtind.fagsystem.user.User;
-import codeCaseFremtind.fagsystem.user.UserResource;
+import codeCase.IntegrationLayer.IntegrationLayer;
+import codeCase.letterService.LetterResource;
+import codeCase.fagsystem.insurance.InsuranceResource;
+import codeCase.fagsystem.user.User;
+import codeCase.fagsystem.user.UserResource;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;

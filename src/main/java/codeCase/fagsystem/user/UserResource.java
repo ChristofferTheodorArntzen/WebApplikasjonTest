@@ -1,6 +1,6 @@
-package codeCaseFremtind.fagsystem.user;
+package codeCase.fagsystem.user;
 
-import codeCaseFremtind.Database;
+import codeCase.Database;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

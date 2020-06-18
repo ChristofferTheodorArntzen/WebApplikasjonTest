@@ -1,4 +1,4 @@
-package codeCaseFremtind.fagsystem.user;
+package codeCase.fagsystem.user;
 
 public class User {
 
