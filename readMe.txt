@@ -1,21 +1,3 @@
-
-
-Used this to create a project.
-
-Followed this guide posted to Stackoverflow to create a project in Intellij
-
-https://stackoverflow.com/questions/31992461/how-to-run-jersey-server-webservice-server-without-using-tomcat
-
-mvn archetype:generate
--DarchetypeArtifactId=jersey-quickstart-grizzly2
--DarchetypeGroupId=org.glassfish.jersey.archetypes
--DinteractiveMode=false
--DgroupId=com.example
--DartifactId=simple-service
--Dpackage=com.example-DarchetypeVersion=2.30.1
-
-Later altered both pom.xml and added a web.xml file.
-
 ------------------------------------------------------------------------------------------------------------------------
 
 Tanker rundt oppgaven
